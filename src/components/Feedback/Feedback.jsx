@@ -1,22 +1,20 @@
-import PropTypes from 'prop-types';
 import { ButtonContainerStyle } from "./Feedback.styled";
-import { nanoid } from 'nanoid';
 
-export const ButtonContainer = ({changeOnClick, option}) => {
+export const ButtonContainer = ({ options, onLeaveFeedback }) => {
     return (
         <ButtonContainerStyle>
-            {option.map(feedback => (
-                <button className="button"
-                type="button"  
-                key={nanoid()} 
-                onClick={() => changeOnClick(feedback)}
-                >{feedback}</button>
+            {options.map(option => (
+                <button 
+                    className="button"
+                    type="button"  
+                    key={option} 
+                    onClick={() => onLeaveFeedback(option)}
+                >
+                    {option}
+                </button>
             ))}
         </ButtonContainerStyle>
     )
 };
 
-ButtonContainer.propTypes ={
-    changeOnCklick: PropTypes.func,
-    option: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,        
-};
+

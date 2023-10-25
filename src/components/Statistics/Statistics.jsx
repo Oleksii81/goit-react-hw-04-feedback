@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {StatisticContainerStyle } from './Statistics.styled';
 
-export const Statistics = ({good, neutral, bad, total, count}) => {
+export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
     return (
         <StatisticContainerStyle>
             <div className="statResults">
@@ -21,7 +21,7 @@ export const Statistics = ({good, neutral, bad, total, count}) => {
                 </p>
                 <p className="statItem">
                     Positive feedback:
-                <span className="statValue">{count.toFixed(0)}</span>%
+                <span className="statValue">{positivePercentage.toFixed(0)}</span>%
                 </p>
             </div> 
         </StatisticContainerStyle>
@@ -33,5 +33,5 @@ Statistics.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    count: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
 };
